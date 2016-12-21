@@ -50,8 +50,8 @@
           <div class="col-lg-10">
             <input #emso type="text" placeholder="Eg: 2607994440003" class="form-control" id="EMSO"
                    formControlName="EMSO">
-            <div class="text-red" *ngIf="user.get('EMSO').hasError('emsoValid') && user.get('EMSO').dirty"> The EMSO
-              is in an incorrect format.
+            <div class="text-red" *ngIf="user.get('EMSO').hasError('emsoValid') && user.get('EMSO').dirty"> {{user.controls['EMSO']
+              ?.errors?.emsoValid.error}}
             </div>
           </div>
         </div>

@@ -45,10 +45,11 @@ var UserDetailsFormComponent = (function () {
         };
         var value = emso.value;
         if (!(/^\d+$/.test(value))) {
+            error.emsoValid.error = 'EMSO must contain only numbers';
             return error;
         }
         else if (value.length != 13) {
-            console.log("Must be a length of 13");
+            error.emsoValid.error = 'EMSO Must be a length of 13';
             return error;
         }
         var j = value.split('').map(function (number) { return parseInt(number); });
@@ -61,6 +62,8 @@ var UserDetailsFormComponent = (function () {
         if (res > 9)
             res = 0;
         var isValid = res == j[12];
+        if (!isValid)
+            error.emsoValid.error = 'EMSO is not valid.';
         return isValid ? null : error;
     };
     UserDetailsFormComponent = __decorate([

@@ -45,7 +45,7 @@ export class UserDetailsFormComponent implements OnInit {
 
   checkEMSO(emso: FormControl) {
     if (!emso.value) return null;
-    let error = {
+    let error: any = {
       emsoValid: {
         valid: false
       }
@@ -53,9 +53,10 @@ export class UserDetailsFormComponent implements OnInit {
 
     let value = emso.value;
     if (!(/^\d+$/.test(value))) {
+      error.emsoValid.error = 'EMSO must contain only numbers';
       return error;
     } else if (value.length != 13) {
-      console.log("Must be a length of 13");
+      error.emsoValid.error = 'EMSO Must be a length of 13';
       return error;
     }
     let j = value.split('').map(number => parseInt(number));
@@ -67,6 +68,7 @@ export class UserDetailsFormComponent implements OnInit {
       2 * (j[5] + j[11])) % 11)
     if (res > 9) res = 0;
     let isValid = res == j[12];
+    if(!isValid) error.emsoValid.error = 'EMSO is not valid.';
     return isValid ? null : error
   }
 
