@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import * as moment from 'moment';
-
-
 
 
 @Component({
@@ -12,37 +10,90 @@ import * as moment from 'moment';
 })
 export class UserDetailsFormComponent implements OnInit {
   user: FormGroup;
-  date: any;
+  validators: any = this.checkDate;
 
   constructor(private formBuilder: FormBuilder) {
   }
-    ngOnInit()
-    {
-      this.user = this.formBuilder.group({
-        fullName: ['', Validators.required],
-        dateOfBirth: ['', Validators.required],
-        EMSO: ['', Validators.required],
-        KZZ: ['', Validators.required],
-        adress: ['', Validators.required]
 
-      });
+  ngOnInit() {
+    this.user = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      dateOfBirth: ['', this.validators],
+      EMSO: ['', this.checkEMSO],
+      KZZ: [''],
+      adress: ['']
 
+    });
+
+
+  }
+
+
+  checkDate(date: FormControl) {
+    if (!date.value) return null;
+    return moment(date.value, 'DD.MM.YYYY', true).isValid() ? null : {
+      dateValid: {
+        valid: false
+      }
 
     }
+  };
 
+  onSubmit() {
+    console.log(this.user.value, this.user.valid);
+  }
 
-    checkDate()
-    {
-      this.date = moment(this.user.controls['dateOfBirth'].value, 'DD.MM.YYYY', true).isValid();
-      return this.date;
+  checkEMSO(emso: FormControl) {
+    if (!emso.value) return null;
+    let error = {
+      emsoValid: {
+        valid: false
+      }
     };
 
-    onSubmit(){
-      console.log(this.user.value, this.user.valid);
+    let value = emso.value;
+    if (!(/^\d+$/.test(value))) {
+      return error;
+    } else if (value.length != 13) {
+      console.log("Must be a length of 13");
+      return error;
     }
+    let j = value.split('').map(number => parseInt(number));
+    let res = 11 - ((7 * (j[0] + j[6]) +
+      6 * (j[1] + j[7]) +
+      5 * (j[2] + j[8]) +
+      4 * (j[3] + j[9]) +
+      3 * (j[4] + j[10]) +
+      2 * (j[5] + j[11])) % 11)
+    if (res > 9) res = 0;
+    let isValid = res == j[12];
+    return isValid ? null : error
+  }
 
+  // checkEMSO(emso: FormControl) {
+  //   console.log(emso);
+  //   let numbersCheck = (!(/^\d+$/.test(emso.value)));
+  //   let lengthCheck = (emso.value.length != 13);
+  //   let j = emso.value.split('').map(number => parseInt(number))
+  //   let res = 11 - ((7 * (j[0] + j[6]) +
+  //     6 * (j[1] + j[7]) +
+  //     5 * (j[2] + j[8]) +
+  //     4 * (j[3] + j[9]) +
+  //     3 * (j[4] + j[10]) +
+  //     2 * (j[5] + j[11])) % 11)
+  //   if (res > 9) res = 0;
+  //   let isValid = res == j[12]
+  //   if (!numbersCheck && !lengthCheck && isValid) {
+  //     return null;
+  //   }
+  //   else {
+  //     return {
+  //       emsoValid:{
+  //         valid:false
+  //     }
+  //   };
 
-
+  // return res == j[12]
 
 
 }

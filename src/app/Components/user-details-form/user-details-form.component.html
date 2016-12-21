@@ -22,56 +22,60 @@
 </nav>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-6 pull-left">
-        <form novalidate class="form-horizontal" (ngSubmit)=onSubmit(user) [formGroup]="user">
-          <div class="form-group">
-            <label for="fullName" class="col-lg-2 control-label">Priimek in ime:</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="fullName" formControlName="fullName">
-              <div class="text-red" *ngIf="user.get('fullName').hasError('required') && user.get('fullName').touched">
-                Name is required.
-              </div>
+    <div class="col-md-8 pull-left">
+      <form novalidate class="form-horizontal" (ngSubmit)='onSubmit(user)' [formGroup]="user">
+        <div class="form-group">
+          <label for="fullName" class="col-lg-2 control-label">*Priimek in ime:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="fullName" formControlName="fullName">
+            <div class="text-red" *ngIf="user.get('fullName').hasError('required') && user.get('fullName').touched">
+              Name is required.
             </div>
           </div>
-          <div class="form-group">
-            <label for="dateOfBirth" class="col-lg-2 control-label"> Datum rojstva:</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
-              <span class="help-block">Date should be in format 'dd.mm.yyyy'. (Ex. 05/12/2016)</span>
-              <div class="text-red" *ngIf="!checkDate() && user.get('dateOfBirth').touched">The date is not in a correct
-                format.
-              </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth" class="col-lg-2 control-label"> Datum rojstva:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+            <span class="help-block">Date should be in format 'dd.mm.yyyy'. (Eg. 05.12.2016)</span>
+            <div class="text-red"
+                 *ngIf="user.get('dateOfBirth').hasError('dateValid') && user.get('dateOfBirth').dirty">The date is
+              not in a correct
+              format.
             </div>
           </div>
-          <div class="form-group">
-            <label for="EMSO" class="col-lg-2 control-label">EMSO:</label>
-            <div class="col-lg-10">
-              <input type="text" placeholder=" Must be in format: ddmmlll500kkk." class="form-control" id="EMSO"
-                     formControlName="EMSO">
+        </div>
+        <div class="form-group">
+          <label for="EMSO" class="col-lg-2 control-label">EMSO:</label>
+          <div class="col-lg-10">
+            <input #emso type="text" placeholder="Eg: 2607994440003" class="form-control" id="EMSO"
+                   formControlName="EMSO">
+            <div class="text-red" *ngIf="user.get('EMSO').hasError('emsoValid') && user.get('EMSO').dirty"> The EMSO
+              is in an incorrect format.
             </div>
           </div>
-          <div class="form-group">
-            <label for="KZZ" class="col-lg-2 control-label">KZZ:</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="KZZ" formControlName="KZZ">
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="KZZ" class="col-lg-2 control-label">KZZ:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="KZZ" formControlName="KZZ">
           </div>
-          <div class="form-group">
-            <label for="adress" class="col-lg-2 control-label">Naslov:</label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="adress" formControlName="adress">
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="adress" class="col-lg-2 control-label">Naslov:</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="adress" formControlName="adress">
           </div>
-          <div class="form-group">
-            <div class="col-lg-10 pull-right">
-              <button type="submit" class="btn btn-default" [disabled]="user.invalid" (click)="checkDate()">Isci
-              </button>
-            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 pull-right">
+            <button type="submit" class="btn btn-default" [disabled]="user.invalid" (click)="checkDate()">Isci
+            </button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
+
   </div>
 </div>
 
