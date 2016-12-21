@@ -9,10 +9,15 @@ import {routing} from './routes';
 
 import { AppComponent } from './app.component';
 import { UserDetailsFormComponent } from './Components/user-details-form/user-details-form.component';
+import {TranslateModule} from "ng2-translate";
+import {Ng2translateComponent} from "./Components/ng2translate/ng2translate.component";
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    UserDetailsFormComponent
+    UserDetailsFormComponent,
+    Ng2translateComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,9 @@ import { UserDetailsFormComponent } from './Components/user-details-form/user-de
     HttpModule,
     NgbModule.forRoot(),
     ReactiveFormsModule,
-    routing
+    routing,
+    TranslateModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,57 @@
+{
+  "SUBMIT": "Submit",
+  "SEARCH": "Search",
+  "SURNAME_AND_NAME": "Surname and Name",
+  "NAME": "Name",
+  "IS": "is",
+  "REQUIRED": "required",
+  "BIRTHDAY": "Date of Birth",
+  "EMSO": "EMSO",
+  "KZZ": "KZZ",
+  "ADDRESS": "Adress",
+  "NOT_CORRECT_DATA":"The date is not in a correct format.",
+  "NOT_CORRECT_FORMAT":"Date should be in format 'dd.mm.yyyy'.(Eg. 05.12.2016)",
+  "NOT_CORRECT_EMSO":"The EMSO is not in a correct format.",
+
+
+
+
+
+
+  "LAST_NAME": "Last name",
+  "PHONE": "Phone Number",
+  "USERNAME": "Username",
+  "EMAIL": "Email",
+  "PASSWORD": "Password",
+  "REPEAT_PASSWORD": "Repeat Password",
+  "LOG_IN": "Sign in",
+  "LOG_OUT": "Log Out",
+  "SIGN_UP": "Sign Up",
+  "BACK": "Back",
+  "OK": "Ok",
+  "CANCEL": "Cancel",
+  "SAVE": "Save",
+  "ENTER_NAME": "Enter Name",
+  "ENTER_LAST_NAME": "Enter Last Name",
+  "ENTER_USERNAME": "Enter Username",
+  "ENTER_EMAIL": "Enter Email",
+  "ENTER_PASSWORD": "Enter Password",
+  "DASHBOARD": "Dashboard",
+  "LOGIN_PAGE": "Login Page",
+  "REGISTER_PAGE": "Register Page",
+  "CITY": "City",
+
+  "SINGUP_DATE": "Singup Date ",
+  "GENDER": "Gender",
+  "COMPANY": "Company",
+  "POSTAL_CODE": "Postal Code",
+  "UPDATE": "Update",
+  "DELETE": "Delete",
+  "MALE": "Male",
+  "FEMALE": "Female",
+  "ENTER_PASSWORD_CONFIRM": "Confirm password",
+  "ALL": "All",
+  "FROM": "From",
+  "TO": "To"
+
+}

@@ -1,0 +1,21 @@
+{
+  "SUBMIT": "POŠLJI",
+  "SEARCH": "Išči",
+  "SURNAME_AND_NAME": "Priimek in Ime",
+  "NAME": "Ime",
+  "IS": "je",
+  "REQUIRED": "obavezno",
+  "BIRTHDAY": "Datum rojstva",
+  "EMSO": "EMSO",
+  "KZZ": "KZZ",
+  "ADDRESS": "Naslov",
+  "NOT_CORRECT_DATA":"Datum ni v pravilni obliki.",
+  "NOT_CORRECT_FORMAT":"Datum mora biti v obliki 'dd.mm.yyyy'.(Eg. 05.12.2016)",
+  "NOT_CORRECT_EMSO":"EMSO ni v pravilni obliki.",
+  "WWW": "WWW"
+
+
+
+
+
+}
