@@ -1,0 +1,18 @@
+{
+  "SUBMIT": "Достави",
+  "SEARCH": "Пребарај",
+  "SURNAME_AND_NAME": "Презиме и Име",
+  "NAME": "Име",
+  "IS": "е",
+  "REQUIRED": "Потребно",
+  "BIRTHDAY": "Датум на раѓање",
+  "EMSO": "ЕМБГ",
+  "KZZ": "KZZ",
+  "ADDRESS": "Адреса",
+  "NOT_CORRECT_DATA":"The date is not in a correct format.",
+  "NOT_CORRECT_FORMAT":"Date should be in format 'dd.mm.yyyy'.(Eg. 05.12.2016)",
+  "NOT_CORRECT_EMSO":"The EMSO is not in a correct format.",
+  "WWW": "WWW"
+
+
+}
