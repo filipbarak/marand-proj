@@ -1,0 +1,78 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MARAND</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6 pull-left">
+        <form novalidate class="form-horizontal" (ngSubmit)=onSubmit(user) [formGroup]="user">
+          <div class="form-group">
+            <label for="fullName" class="col-lg-2 control-label">Priimek in ime:</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="fullName" formControlName="fullName">
+              <div class="text-red" *ngIf="user.get('fullName').hasError('required') && user.get('fullName').touched">
+                Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth" class="col-lg-2 control-label"> Datum rojstva:</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+              <span class="help-block">Date should be in format 'dd.mm.yyyy'. (Ex. 05/12/2016)</span>
+              <div class="text-red" *ngIf="!checkDate() && user.get('dateOfBirth').touched">The date is not in a correct
+                format.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="EMSO" class="col-lg-2 control-label">EMSO:</label>
+            <div class="col-lg-10">
+              <input type="text" placeholder=" Must be in format: ddmmlll500kkk." class="form-control" id="EMSO"
+                     formControlName="EMSO">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="KZZ" class="col-lg-2 control-label">KZZ:</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="KZZ" formControlName="KZZ">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adress" class="col-lg-2 control-label">Naslov:</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="adress" formControlName="adress">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 pull-right">
+              <button type="submit" class="btn btn-default" [disabled]="user.invalid" (click)="checkDate()">Isci
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

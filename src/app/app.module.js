@@ -10,20 +10,26 @@ var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var ng_bootstrap_1 = require('@ng-bootstrap/ng-bootstrap');
+var forms_2 = require('@angular/forms');
+var routes_1 = require('./routes');
 var app_component_1 = require('./app.component');
+var user_details_form_component_1 = require('./Components/user-details-form/user-details-form.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                user_details_form_component_1.UserDetailsFormComponent
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,
-                ng_bootstrap_1.NgbModule.forRoot()
+                ng_bootstrap_1.NgbModule.forRoot(),
+                forms_2.ReactiveFormsModule,
+                routes_1.routing
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]
