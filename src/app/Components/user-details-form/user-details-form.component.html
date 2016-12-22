@@ -22,6 +22,7 @@
     </div>
   </div>
 </nav>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 pull-left">
@@ -31,7 +32,7 @@
           <div class="col-lg-10">
             <input type="text" class="form-control" id="fullName" formControlName="fullName">
             <div class="text-red" *ngIf="user.get('fullName').hasError('required') && user.get('fullName').touched">
-                {{ "NAME" | translate }} {{ "IS" | translate }} {{ 'REQUIRED' | translate }}.
+              {{ "NAME" | translate }} {{ "IS" | translate }} {{ 'REQUIRED' | translate }}.
             </div>
           </div>
         </div>
@@ -41,7 +42,8 @@
             <input type="text" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
             <span class="help-block">{{ 'NOT_CORRECT_FORMAT' | translate }}</span>
             <div class="text-red"
-                 *ngIf="user.get('dateOfBirth').hasError('dateValid') && user.get('dateOfBirth').dirty">{{ 'NOT_CORRECT_DATA' | translate }}
+                 *ngIf="user.get('dateOfBirth').hasError('dateValid') && user.get('dateOfBirth').dirty">{{
+              'NOT_CORRECT_DATA' | translate }}
             </div>
           </div>
         </div>
@@ -50,7 +52,8 @@
           <div class="col-lg-10">
             <input #emso type="text" placeholder="Eg: 2607994440003" class="form-control" id="EMSO"
                    formControlName="EMSO">
-            <div class="text-red" *ngIf="user.get('EMSO').hasError('emsoValid') && user.get('EMSO').dirty"> {{ 'NOT_CORRECT_EMSO' | translate }}
+            <div class="text-red" *ngIf="user.get('EMSO').hasError('emsoValid') && user.get('EMSO').dirty"> {{
+              'NOT_CORRECT_EMSO' | translate }}
             </div>
           </div>
         </div>
@@ -68,14 +71,140 @@
         </div>
         <div class="form-group">
           <div class="col-lg-10 pull-right">
-            <button type="submit" class="btn btn-default" [disabled]="user.invalid" (click)="checkDate()">{{ 'SEARCH' | translate }}
+            <button type="submit" class="btn btn-default" [disabled]="user.invalid" (click)="checkDate()">{{ 'SEARCH' |
+              translate }}
             </button>
+            <button class="btn btn-default" disabled>Pregled predhodnih izvidov</button>
           </div>
         </div>
       </form>
     </div>
-
   </div>
 </div>
 
+
+<form class="form-inline" class="col-lg-6">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Številka preparata</label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Razlog odvzema</label>
+      <div class="col-lg-6">
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Mesto odvzema</label>
+      <div class="col-lg-6">
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Menstrualni ciklus</label>
+      <div class="col-md-2">
+        <input type="text" class="form-control">
+      </div>
+      <label class="col-lg-1">/</label>
+      <div class="col-md-2">
+        <input type="text" class="form-control">
+      </div>
+      <label class="col-lg-4 control-label">Zadnja menstruacija</label>
+      <div class="col-md-4">
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Maternični vložek</label>
+      <div class="col-lg-6">
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Napotni laboratorij</label>
+      <div class="col-lg-6">
+        <select class="form-control">
+          <option>Klinicki centar</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-1">
+        <button class="btn btn-default" disabled>Natisni</button>
+        <button class="btn btn-default" disabled>Na seznam</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+<form class="form-inline" class="col-lg-6">
+  <fieldset>
+    <div class="form-group">
+      <label class="col-lg-4 control-label">MKB</label>
+      <div class="col-lg-6">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="textArea" class="col-lg-4 control-label">Opombe</label>
+      <div class="col-lg-6 pull-left">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-10 control-label">
+        Hormonska kontracepcija <input type="checkbox">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-10 control-label">
+        HNZ <input type="checkbox">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="col-lg-4 control-label">Šifra vzorca</label>
+      <div class="col-lg-6">
+        <input type="text" disabled class="form-control">
+      </div>
+    </div>
+
+  </fieldset>
+</form>
 
